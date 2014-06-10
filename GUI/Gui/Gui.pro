@@ -4,9 +4,11 @@ SOURCES += \
     main.cpp \
     marqueur.cpp \
     pays.cpp \
-    armee.cpp
+    armee.cpp \
+    reseau.cpp
 
 HEADERS += \
     marqueur.h \
     pays.h \
-    armee.h
+    armee.h \
+    reseau.h

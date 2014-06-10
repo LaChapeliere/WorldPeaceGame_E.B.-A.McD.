@@ -10,6 +10,8 @@ class Marqueur
 public:
     Marqueur(string description);
     void modifier_valeur(double difference);
+    void operator+=(Marqueur *marqueur);
+    void operator-=(Marqueur *marqueur);
 
 private:
     string m_nom;

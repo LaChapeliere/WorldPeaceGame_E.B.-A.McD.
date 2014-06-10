@@ -1,7 +1,12 @@
 #include "pays.h"
+#include "marqueur.h"
+#include "reseau.h"
+#include "armee.h"
 
 using namespace std;
 
+
+//Constructeur
 Pays::Pays(string nom, string mdpNucleaire, int infanterie, int blindes, string fichierMarqueurs): m_nom(nom), m_mdpNucleaire(mdpNucleaire), Armee(infanterie, blindes)
 {
     ifstream monFlux(fichierMarqueurs);
