@@ -5,12 +5,9 @@ using namespace std;
 //Constructeur
 Marqueur::Marqueur(string description)
 {
-    string word;
-    streamstring stream(description);
-    getline(stream, word, ';');
-    m_nom = word;
-    getline(stream, word, ';');
-    m_valeur = word;
+    stringstream stream(description);
+    stream >> m_nom;
+    stream >> m_valeur;
 }
 
 //Modifie la valeur d'un marqueur et repercute ces modifications sur les marqueurs fils en fonction des actions des joueurs
@@ -30,26 +27,26 @@ void Marqueur::modifier_valeur(double difference)
     //Si la difference est plus superieure ou egale à 10, elle se propage aux marqueurs fils
     if (difference >= 10)
     {
-        for (int i(0); i<length(m_filsAug); i++)
+        for (int i(0); i<m_filsAug.size(); i++)
         {
-            m_filsAug->modifier_valeur(difference/10);
+            m_filsAug[i]->modifier_valeur(difference/10);
         }
-        for (int i(0); i<length(m_filsDim); i++)
+        for (int i(0); i<m_filsDim.size(); i++)
         {
-            m_filsDim->modifier_valeur(-(difference/10));
+            m_filsDim[i]->modifier_valeur(-(difference/10));
         }
     }
 }
 
 
 //Ajoute un marqueur aux marqueurs fils qui sont affectes positivement par le marqueur
-void operator+=(Marqueur *marqueur)
+void Marqueur::operator+=(Marqueur *marqueur)
 {
     m_filsAug.push_back(marqueur);
 }
 
 //Ajoute un marqueur aux marqueurs fils qui sont affectes negativement par le marqueur
-void operator-=(Marqueur *marqueur)
+void Marqueur::operator-=(Marqueur *marqueur)
 {
     m_filsDim.push_back(marqueur);
 }

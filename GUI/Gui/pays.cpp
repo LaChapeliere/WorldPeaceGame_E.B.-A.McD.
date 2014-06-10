@@ -1,22 +1,20 @@
 #include "pays.h"
-#include "marqueur.h"
-#include "reseau.h"
-#include "armee.h"
+
 
 using namespace std;
 
 
 //Constructeur
-Pays::Pays(string nom, string mdpNucleaire, int infanterie, int blindes, string fichierMarqueurs): m_nom(nom), m_mdpNucleaire(mdpNucleaire), Armee(infanterie, blindes)
+Pays::Pays(string nom, string mdpNucleaire, int infanterie, int blindes, const char* fichierMarqueurs): m_nom(nom), m_mdpNucleaire(mdpNucleaire), m_armee(Armee(infanterie, blindes))
 {
     ifstream monFlux(fichierMarqueurs);
 
     if(monFlux)
     {
         string description;
-        while (getline(monFlux, ligne))
+        while (getline(monFlux, description))
         {
-            m_marqueurs.push_back(Marqueur(ligne));
+            m_marqueurs.push_back(Marqueur(description));
         }
     }
     else

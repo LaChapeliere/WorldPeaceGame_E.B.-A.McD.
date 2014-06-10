@@ -3,21 +3,21 @@
 
 #include <string>
 #include <vector>
-#include <streamstring>
+#include <sstream>
 
 class Marqueur
 {
 public:
-    Marqueur(string description);
+    Marqueur(std::string description);
     void modifier_valeur(double difference);
     void operator+=(Marqueur *marqueur);
     void operator-=(Marqueur *marqueur);
 
 private:
-    string m_nom;
+    std::string m_nom;
     double m_valeur;
-    vector<Marqueur*> m_filsAug;
-    vector<Marqueur*> m_filsDim;
+    std::vector<Marqueur*> m_filsAug;
+    std::vector<Marqueur*> m_filsDim;
 };
 
 #endif // MARQUEUR_H

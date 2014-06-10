@@ -4,16 +4,20 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include "marqueur.h"
+#include "reseau.h"
+#include "armee.h"
 
 class Pays
 {
 public:
-    Pays();
+    Pays(std::string nom, std::string mdpNucleaire, int infanterie, int blindes, const char *fichierMarqueurs);
 
 private:
-    string m_nom;
-    string m_mdpNucleaire;
-    vector<Marqueur*> m_marqueurs;
+    std::string m_nom;
+    std::string m_mdpNucleaire;
+    std::vector<Marqueur> m_marqueurs;
     Armee m_armee;
 
 };
