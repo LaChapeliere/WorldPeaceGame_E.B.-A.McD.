@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QApplication>
 #include <QLineEdit>
 #include <QFormLayout>
 #include <QMenuBar>
