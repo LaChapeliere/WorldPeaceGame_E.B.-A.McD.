@@ -6,6 +6,12 @@
 #include <QLineEdit>
 #include <QFormLayout>
 #include <QMenuBar>
+#include <QDialog>
+#include <QLabel>
+#include <QComboBox>
+#include <QLayout>
+#include <QPushButton>
+#include "creationpays.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,6 +22,7 @@ public:
 signals:
 
 public slots:
+    void fenetreCreationPays();
 
 };
 

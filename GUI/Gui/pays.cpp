@@ -5,13 +5,15 @@ using namespace std;
 
 
 //Constructeur
-Pays::Pays(string nom, string mdpNucleaire, int infanterie, int blindes, const char* fichierMarqueurs): m_nom(nom), m_mdpNucleaire(mdpNucleaire), m_armee(Armee(infanterie, blindes))
+//Changer la facon dont est creee l'armee
+Pays::Pays(string nom, string mdpNucleaire, const char* fichierMarqueurs): m_nom(nom), m_mdpNucleaire(mdpNucleaire), m_armee(Armee(0, 0))
 {
     ifstream monFlux(fichierMarqueurs);
 
     if(monFlux)
     {
         string description;
+        getline(monFlux, description); //Saute la ligne d'en-tete
         while (getline(monFlux, description))
         {
             m_marqueurs.push_back(Marqueur(description));

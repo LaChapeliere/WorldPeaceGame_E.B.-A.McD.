@@ -12,7 +12,7 @@
 class Pays
 {
 public:
-    Pays(std::string nom, std::string mdpNucleaire, int infanterie, int blindes, const char *fichierMarqueurs);
+    Pays(std::string nom, std::string mdpNucleaire, const char *fichierMarqueurs);
 
 private:
     std::string m_nom;

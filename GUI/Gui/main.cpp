@@ -5,6 +5,10 @@
 #include "pays.h"
 #include "mainwindow.h"
 
+using namespace std;
+
+//Declaration des Pays comme variables globales meme si c'est mal, parce que sinon c'est la galere
+Pays *Bleu, *Rouge, *Vert, *Jaune;
 
 int main(int argc, char *argv[])
 {
@@ -51,4 +55,8 @@ int main(int argc, char *argv[])
 
     fenetreDemarrage.show();*/
     return app.exec();
+    delete Bleu;
+    delete Rouge;
+    delete Vert;
+    delete Jaune;
 }
